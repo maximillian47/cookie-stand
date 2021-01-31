@@ -1,6 +1,11 @@
 "use strict";
 
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm' ];
+let seattleList = document.getElementById('seattle');
+let tokyoList = document.getElementById('tokyo');
+let dubaiList = document.getElementById('dubai');
+let parisList = document.getElementById('paris');
+let limaList = document.getElementById('lima');
 
 let seattle = {
   name: 'Seattle',
@@ -22,9 +27,10 @@ let seattle = {
   calcCookiesSoldEachHour: function(){
     console.log('calcCookiesSoldEachHour starts here');
     
-    for (var i=0; i<14; i++){
+    for (var i=0; i<hours.length; i++){
       let randomCustomerForOneHour = this.randomCustomerEachHour();
       this.cookiesSoldPerHourArray[i] = Math.ceil(randomCustomerForOneHour*this.averageCookiesSoldPerCustomer); 
+      this.dailyStoreTotal = this.dailyStoreTotal + this.cookiesSoldPerHourArray[i];
     }
     console.log(this.cookiesSoldPerHourArray);
     return this.cookiesSoldPerHourArray; 
@@ -33,7 +39,15 @@ let seattle = {
   // a method to render list items
   render: function(){
     this.calcCookiesSoldEachHour();
-    console.log('render method runs here');
+    // console.log('render method runs here');
+    for (var i=0; i<hours.length;i++){
+    let li = document.createElement('li');
+    li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
+    seattleList.appendChild(li);
+    }
+    let li = document.createElement('li');
+    li.textContent = `Total: ${this.dailyStoreTotal} cookies`;
+    seattleList.appendChild(li);
   },
 };
 
@@ -56,9 +70,10 @@ let tokyo = {
   calcCookiesSoldEachHour: function(){
     console.log('calcCookiesSoldEachHour starts here');
     
-    for (var i=0; i<14; i++){
+    for (var i=0; i<hours.length; i++){
       let randomCustomerForOneHour = this.randomCustomerEachHour();
       this.cookiesSoldPerHourArray[i] = Math.ceil(randomCustomerForOneHour*this.averageCookiesSoldPerCustomer); 
+      this.dailyStoreTotal = this.dailyStoreTotal + this.cookiesSoldPerHourArray[i];
     }
     console.log(this.cookiesSoldPerHourArray);
     return this.cookiesSoldPerHourArray; 
@@ -67,7 +82,15 @@ let tokyo = {
   // a method to render list items
   render: function(){
     this.calcCookiesSoldEachHour();
-    console.log('render method runs here');
+    // console.log('render method runs here');
+    for (var i=0; i<hours.length;i++){
+      let li = document.createElement('li');
+      li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
+      tokyoList.appendChild(li);
+    }
+    let li = document.createElement('li');
+    li.textContent = `Total: ${this.dailyStoreTotal} cookies`;
+    tokyoList.appendChild(li);
   },
 }
 
@@ -90,9 +113,10 @@ let dubai = {
   calcCookiesSoldEachHour: function(){
     console.log('calcCookiesSoldEachHour starts here');
     
-    for (var i=0; i<14; i++){
+    for (var i=0; i<hours.length; i++){
       let randomCustomerForOneHour = this.randomCustomerEachHour();
       this.cookiesSoldPerHourArray[i] = Math.ceil(randomCustomerForOneHour*this.averageCookiesSoldPerCustomer); 
+      this.dailyStoreTotal = this.dailyStoreTotal + this.cookiesSoldPerHourArray[i];
     }
     console.log(this.cookiesSoldPerHourArray);
     return this.cookiesSoldPerHourArray; 
@@ -101,7 +125,15 @@ let dubai = {
   // a method to render list items
   render: function(){
     this.calcCookiesSoldEachHour();
-    console.log('render method runs here');
+    // console.log('render method runs here');
+    for (var i=0; i<hours.length;i++){
+      let li = document.createElement('li');
+      li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
+      dubaiList.appendChild(li);
+    }
+    let li = document.createElement('li');
+    li.textContent = `Total: ${this.dailyStoreTotal} cookies`;
+    dubaiList.appendChild(li);
   },
 }
 
@@ -124,9 +156,10 @@ let paris = {
   calcCookiesSoldEachHour: function(){
     console.log('calcCookiesSoldEachHour starts here');
     
-    for (var i=0; i<14; i++){
+    for (var i=0; i<hours.length; i++){
       let randomCustomerForOneHour = this.randomCustomerEachHour();
       this.cookiesSoldPerHourArray[i] = Math.ceil(randomCustomerForOneHour*this.averageCookiesSoldPerCustomer); 
+      this.dailyStoreTotal = this.dailyStoreTotal + this.cookiesSoldPerHourArray[i];
     }
     console.log(this.cookiesSoldPerHourArray);
     return this.cookiesSoldPerHourArray; 
@@ -135,7 +168,15 @@ let paris = {
   // a method to render list items
   render: function(){
     this.calcCookiesSoldEachHour();
-    console.log('render method runs here');
+    // console.log('render method runs here');
+    for (var i=0; i<hours.length;i++){
+      let li = document.createElement('li');
+      li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
+      parisList.appendChild(li);
+    }
+    let li = document.createElement('li');
+    li.textContent = `Total: ${this.dailyStoreTotal} cookies`;
+    parisList.appendChild(li);
   },
   
 }
@@ -159,9 +200,10 @@ let lima = {
   calcCookiesSoldEachHour: function(){
     console.log('calcCookiesSoldEachHour starts here');
     
-    for (var i=0; i<14; i++){
+    for (var i=0; i<hours.length; i++){
       let randomCustomerForOneHour = this.randomCustomerEachHour();
       this.cookiesSoldPerHourArray[i] = Math.ceil(randomCustomerForOneHour*this.averageCookiesSoldPerCustomer); 
+      this.dailyStoreTotal = this.dailyStoreTotal + this.cookiesSoldPerHourArray[i];
     }
     console.log(this.cookiesSoldPerHourArray);
     return this.cookiesSoldPerHourArray; 
@@ -170,7 +212,15 @@ let lima = {
   // a method to render list items
   render: function(){
     this.calcCookiesSoldEachHour();
-    console.log('render method runs here');
+    // console.log('render method runs here');
+    for (var i=0; i<hours.length;i++){
+      let li = document.createElement('li');
+      li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
+      limaList.appendChild(li);
+    }
+    let li = document.createElement('li');
+    li.textContent = `Total: ${this.dailyStoreTotal} cookies`;
+    limaList.appendChild(li);
   },
 }
 
