@@ -7,7 +7,7 @@ let tableHeader = document.getElementById('table-header');
 let cookieTable = document.getElementById('cookie-table');
 let tableFooter = document.getElementById('table-footer');
 let tableBody = document.getElementById('table-body');
-
+let myForm = document.getElementById('form');
 
 const allStores = [];
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm' ];
@@ -103,6 +103,21 @@ function renderAll(){
   }
 } 
 
+function handleSubmit(event){
+  event.preventDefault();
+
+  let newLocation = event.target.newlocation.value;
+  let newMinCusEachHour = +event.target.minimumCustomerEachHour.value;
+  let newMaxCusEachHour = +event.target.maximumCustomerEachHour.value;
+  let newAvgCookiePerCus = +event.target.averageCookiesSoldPerCustomer.value;
+
+  let newFranchise = new franchise(newLocation, newMinCusEachHour, newMaxCusEachHour, newAvgCookiePerCus);
+  newFranchise.render();
+  
+  tableFooter.removeChild(tableFooter.lastChild);
+  renderFooter();
+}
+
 new franchise('Seattle', 23, 65, 6.3);
 new franchise('Tokyo', 3, 24, 1.2);
 new franchise('Dubai', 11, 38, 3.7);
@@ -112,3 +127,4 @@ new franchise('Lima', 2, 16, 4.6);
 renderAll();
 renderHeader();
 renderFooter();
+myForm.addEventListener('submit', handleSubmit);
