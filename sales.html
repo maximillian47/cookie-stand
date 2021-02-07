@@ -7,10 +7,32 @@
   </head>
 
   <body id="sales-body">
+
     <header>
     <h1>salmon cookies sales data</h1>
     </header>
+
     <main>
+      <form id="form">
+        <fieldset>
+          <legend>Create New Franchise</legend>
+
+          <label for="newlocation">New Location</label>
+          <input type="text" name="newlocation" required="required">
+
+          <label for="mincus">Minimum Customers Per Hour</label>
+          <input type="number" min="0" name="mincus" required="required">
+
+          <label for="maxcus">Maximum Customers Per Hour</label>
+          <input type="number" min="0" name="maxcus" required="required">
+
+          <label for="avgcookie">Average Cookies Sold Per Customer</label>
+          <input type="number" min="0" name="avgcookie" required="required">
+
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+      
     <table id="cookie-table">
       <thead id="table-header"></thead>
       <tbody id="table-body"></tbody>
